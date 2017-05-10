@@ -41,6 +41,5 @@ resize.js的坑
 3. 再复杂一些的响应式页面，需要利用css3的media query属性来进行适配，大致思路是根据屏幕不同大小，来设置对应的css样式。
 
 ### 参考
-[web app变革之rem](https://isux.tencent.com/web-app-rem.html)
-
-[TAT.tennylv移动web适配利器-rem](http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/)
+1. [web app变革之rem](https://isux.tencent.com/web-app-rem.html)
+2. [TAT.tennylv移动web适配利器-rem](http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/)
