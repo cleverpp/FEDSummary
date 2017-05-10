@@ -43,3 +43,5 @@ resize.js的坑
 ### 参考
 1. [web app变革之rem](https://isux.tencent.com/web-app-rem.html)
 2. [TAT.tennylv移动web适配利器-rem](http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/)
+3. [两个viewport的故事（第一部分）](http://weizhifeng.net/viewports.html)
+4. [两个viewport的故事（第二部分）](http://weizhifeng.net/viewports2.html)
