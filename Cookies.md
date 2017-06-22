@@ -2,12 +2,17 @@
 ## document.cookie
 ## cookie的选项
 name-domain-path-secure
+
 expires
+
 http-only
+
 host-only
+
 ## cookie的自动删除
 ## 跨域情况下的cookie使用
 Access-Control-Allow-Credentials:true
+
 withCredentials:true
 ## 参考
 1. [HTTP cookies 详解](http://bubkoo.com/2014/04/21/http-cookies-explained/)
