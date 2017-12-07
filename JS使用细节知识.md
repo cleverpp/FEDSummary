@@ -48,3 +48,18 @@ let [a, [b=1], c] = [1, [null] ];
 console.log(a,b,c);
 // 1,null,undefined
 ```
+
+### apply,call,bind
+1. apply() 方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数。
+fun.apply(thisArg, [argsArray])
+2. call() 方法调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)。
+fun.call(thisArg, arg1, arg2, ...)
+3. bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。
+fun.bind(thisArg[, arg1[, arg2[, ...]]])
+
+举例：
+```
+var numbers = [5, 6, 2, 3, 7];
+var max = Math.max.apply(null, numbers);
+var min = Math.min.apply(null, numbers);
+```
