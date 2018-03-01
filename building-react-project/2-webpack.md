@@ -36,3 +36,4 @@ module.exports = {
 ```
 ## 热加载
 ## 代码分离code spliting
+webpack支持代码分离的历史发展，例如require.ensure()，dynamic import()
