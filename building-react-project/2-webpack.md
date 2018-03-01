@@ -37,7 +37,7 @@ module.exports = {
 ## 热加载
 ## 代码分离code spliting
 require.ensure()，dynamic import()
-### 参考链接
+#### 参考链接
 1. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 ## 如何拆分第三方代码库或项目中的公共库 - CommonsChunkPlugin
 ## 如何拆分CSS - ExtractTextWebpackPlugin
