@@ -1,4 +1,4 @@
-# 基础配置，让React运行起来
+## 基础配置，让React运行起来
 entry：入口文件
 
 output：打包后的文件输出
@@ -34,3 +34,5 @@ module.exports = {
     ]
 }
 ```
+## 热加载
+## 代码分离code spliting
