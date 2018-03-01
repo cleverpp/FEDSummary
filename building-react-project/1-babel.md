@@ -1,8 +1,8 @@
-# babel的配置
+## babel的配置
 根目录下建立.babelrc文件
 
 package.json中有babel选项，例如:"babel":{}
-# .babelrc
+## .babelrc
 主要组成由presets和plugins
 ```
 {
@@ -39,3 +39,8 @@ package.json中有babel选项，例如:"babel":{}
   "comments": false
 }
 ```
+
+## 参考链接
+1. https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/user-handbook.md
+2. https://juejin.im/post/5a79adeef265da4e93116430
+3. http://web.jobbole.com/91090/
