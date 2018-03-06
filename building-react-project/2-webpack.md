@@ -34,7 +34,37 @@ module.exports = {
     ]
 }
 ```
-## 热加载
+## webpack-dev-server
+它提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)。
+1. 安装
+```
+npm install --save-dev webpack-dev-server
+```
+2. 配置，在webpack配置文件中，增加一项属性devServer
+contentBase:运行的目标目录，告诉服务器从哪里提供内容
+
+compress: ture则文件会做gzip压缩
+
+host：指定使用一个 host。默认是 localhost。如果你希望服务器外部可访问，指定如下：host: "0.0.0.0"
+
+port: 服务器端口
+
+hot:启用 webpack 的模块热替换特性
+
+lazy:懒惰模式，只有在请求时才编译包(bundle)。这意味着 webpack 不会监视任何文件改动
+
+filename：搭配懒惰模式使用，只在某个文件被请求时编译。
+
+headers：设置响应头
+
+proxy：可以设置代理转发，处理跨域的一种方式。
+
+3. 刷新方式
+如果选择inline-mode，则webpack-dev-server会在你的webpack.config.js的入口配置文件中再添加一个入口。
+
+## 模块热替换 HMR
+
+
 ## 代码分离code spliting
 require.ensure()，dynamic import()
 #### 参考链接
