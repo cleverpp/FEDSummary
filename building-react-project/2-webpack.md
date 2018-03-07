@@ -103,7 +103,7 @@ package.json
 ```
   "scripts": {
     "dev": "webpack --config webpack.config.js",
-    "start": "webpack-dev-server --open --host 0.0.0.0"
+    "start": "webpack-dev-server --open"
   },
 ```
 5. 遇到的问题
@@ -111,8 +111,71 @@ package.json
 - webpack 4.x 移除了 webpack.optimize.UglifyJsPlugin。 需要独立安装uglifyjs-webpack-plugin插件。
 
 ## 模块热替换 HMR
-react的热替换需要使用[react-hot-loader插件}(https://github.com/gaearon/react-hot-loader)
+react的热替换需要使用[react-hot-loader插件](https://github.com/gaearon/react-hot-loader)
+```
+npm install --save-dev react-hot-loader
+```
+.babelrc文件的变化
+```
+// .babelrc
+{
+  "plugins": ["react-hot-loader/babel"]
+}
+```
+webpack.confi.js 的变化
+```
+   devServer:{
+        contentBase: path.resolve(root, "dist"),
+        host:"0.0.0.0", // 或者你本机的ip，不设置这个默认只能localhost访问
+        port:9002,
+        compress:true,
+        hot:true
+    },
+    plugins:[
+        ......
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ]
+```
+入口文件main.js的变化
+```
+// main.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import {AppContainer} from 'react-hot-loader'
 
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        document.getElementById('root'),
+    )
+}
+
+render(App)
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        // if you are using harmony modules ({modules:false})
+        render(App)
+        // in all other cases - re-require App manually
+        // render(require('./App'))
+    })
+}
+```
+组件App.js的变化
+```
+//App.js
+import React from 'react'
+import { hot } from 'react-hot-loader'
+
+const App = () => <div>Hello World! zcp is wonderful</div>
+
+export default hot(module)(App)
+```
 ## 生产环境构建
 
 ## 代码分离code spliting
