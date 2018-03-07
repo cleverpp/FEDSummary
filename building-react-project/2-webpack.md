@@ -65,12 +65,39 @@ npm install --save-dev webpack-dev-server
 4. 基础配置
 webpack.config.js
 ```
-+    devServer:{
-+        contentBase: path.resolve(root, "dist"),
-+        host:"0.0.0.0",
-+        port:9002,
-+        compress:true
-+    },
+const path = require('path');
+const root = __dirname;
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+module.exports = {
+    entry:[
+        /*'webpack-dev-server/client',*/
+        path.resolve(root, 'src/main.js')
+    ],
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(root, 'dist')
+    },
+    devServer:{
+        contentBase: path.resolve(root, "dist"),
+        host:"0.0.0.0", // 或者你本机的ip，不设置这个默认只能localhost访问
+        port:9002,
+        compress:true
+    },
+    module: {
+        rules: [
+            {test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/}
+        ]
+    },
+    plugins:[
+        new UglifyJsPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
+    ]
+};
 ```
 package.json
 ```
@@ -84,7 +111,9 @@ package.json
 - webpack 4.x 移除了 webpack.optimize.UglifyJsPlugin。 需要独立安装uglifyjs-webpack-plugin插件。
 
 ## 模块热替换 HMR
+react的热替换需要使用[react-hot-loader插件}(https://github.com/gaearon/react-hot-loader)
 
+## 生产环境构建
 
 ## 代码分离code spliting
 require.ensure()，dynamic import()
