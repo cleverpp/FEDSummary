@@ -178,8 +178,16 @@ export default hot(module)(App)
 ```
 ## 生产环境构建
 
-## 代码分离code spliting
-require.ensure()，dynamic import()
+## 代码分离code spliting 和 懒加载
+- 方式一：多入口+CommonsChunkPlugin
+- 方式二：动态导入：require.ensure()，dynamic import()
+
+### React中实现代码分离和懒加载
+1. babel中需增加babel-plugin-syntax-dynamic-import插件
+2. 使用react-loadable
+3. 
+
+
 #### 参考链接
 1. [Code Splitting in Create React App](https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html)
 ## 如何拆分第三方代码库或项目中的公共库 - CommonsChunkPlugin
